@@ -20,9 +20,9 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <MyProfile />,
       },
-      { path: "/*", element: <NotFound /> },
     ],
   },
+  { path: "/*", element: <NotFound /> },
 ]);
 
 export default router;
