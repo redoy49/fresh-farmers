@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router";
-import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
   const { handleLogin, googleLogin } = useContext(AuthContext);
-  console.log(handleLogin, googleLogin);
 
   const handleSubmit = (e) => {
     e.preventDefault();

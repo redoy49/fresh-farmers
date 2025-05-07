@@ -59,10 +59,10 @@ const AuthProvider = ({ children }) => {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
+        toast.success("Log out successfull!");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        toast.error("Log out error!");
       });
   };
 

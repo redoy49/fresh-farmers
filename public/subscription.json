@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Gadget Box",
+    "category": "Tech",
+    "thumbnail": "https://i.ibb.co/t4FBLWP/tech-box.jpg",
+    "price": "$29.99",
+    "frequency": "Monthly",
+    "description": "A curated box of the latest tech gadgets."
+  },
+  {
+    "id": 2,
+    "name": "Beauty Bliss",
+    "category": "Beauty",
+    "thumbnail": "https://i.ibb.co/4J8PmMJ/beauty-box.jpg",
+    "price": "$24.99",
+    "frequency": "Monthly",
+    "description": "Premium beauty and skincare products."
+  },
+  {
+    "id": 3,
+    "name": "Snack Attack",
+    "category": "Food",
+    "thumbnail": "https://i.ibb.co/f0LTfKR/snack-box.jpg",
+    "price": "$19.99",
+    "frequency": "Monthly",
+    "description": "Global snacks delivered to your door."
+  },
+  {
+    "id": 4,
+    "name": "Book Lovers",
+    "category": "Books",
+    "thumbnail": "https://i.ibb.co/N3p4ZTw/book-box.jpg",
+    "price": "$21.99",
+    "frequency": "Monthly",
+    "description": "A surprise book and reading goodies every month."
+  },
+  {
+    "id": 5,
+    "name": "Fitness Fuel",
+    "category": "Fitness",
+    "thumbnail": "https://i.ibb.co/jDRy5gN/fitness-box.jpg",
+    "price": "$34.99",
+    "frequency": "Monthly",
+    "description": "Supplements and gear for your fitness journey."
+  },
+  {
+    "id": 6,
+    "name": "Pet Paradise",
+    "category": "Pets",
+    "thumbnail": "https://i.ibb.co/jZFyW7B/pet-box.jpg",
+    "price": "$27.99",
+    "frequency": "Monthly",
+    "description": "Toys and treats your pet will love!"
+  }
+]

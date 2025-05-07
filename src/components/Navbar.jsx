@@ -1,15 +1,16 @@
-// import React, { useContext } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   // const navigate = useNavigate();
   // const { pathname } = useLocation();
 
-  // const { handleSignOut } = useContext(AuthContext);
+  const { user, handleLogout } = useContext(AuthContext);
+  console.log(user, handleLogout);
 
   return (
-    <div className="navbar justify-between bg-base-100 shadow-sm">
+    <div className="navbar justify-between bg-base-100 shadow-sm py-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
