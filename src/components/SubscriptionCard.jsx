@@ -53,7 +53,7 @@ const SubscriptionCard = ({ service }) => {
         </div>
         <a
           href="#"
-          className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-4 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          className="flex items-center justify-center rounded-md bg-violet-600 px-5 py-4 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300"
         >
           View Details
         </a>

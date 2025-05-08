@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import SubscriptionCard from "../components/SubscriptionCard";
 import FAQ from "../components/FAQ";
+import Benifits from "../components/Benifits";
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -29,6 +30,7 @@ const Home = () => {
           <SubscriptionCard key={service.id} service={service} />
         ))}
       </div>
+      <Benifits></Benifits>
       <FAQ></FAQ>
     </div>
   );
