@@ -1,16 +1,33 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const { pathname } = useLocation();
-
   const { user, handleLogout } = useContext(AuthContext);
-  console.log(user, handleLogout);
+  console.log(user);
+  const logOut = () => {
+    handleLogout().then(() => {
+      navigate("/login");
+    });
+  };
 
+  const links = (
+    <>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/profile">Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to="/setting">Setting</NavLink>
+      </li>
+    </>
+  );
   return (
-    <div className="navbar justify-between bg-base-100 shadow-sm py-4">
+    <div className="navbar bg-base-100 md:py-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,42 +51,47 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>My Profile</a>
-            </li>
+            {links}
           </ul>
         </div>
-        <NavLink
-          to="/"
-          aria-label="Back to homepage"
-          className="flex items-center p-2"
-        >
-          <h1 className="text-2xl font-bold text-violet-500">
-            Canine<span className="text-slate-500">Box</span>
-          </h1>
-        </NavLink>
+        <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
-      <div className="navbar-end hidden md:flex">
-        <ul className="menu menu-horizontal items-center space-x-4">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/profile">My Profile</NavLink>
-          </li>
-        </ul>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-
-      <div className="flex space-x-4">
-        <NavLink to="/login" className="btn">
-          Login
-        </NavLink>
-        <NavLink to="/register" className="btn">
-          Register
-        </NavLink>
+      <div className="navbar-end">
+        {user ? (
+          <div className="flex items-center gap-4">
+            <img
+              className="w-10 h-10 rounded-full object-cover"
+              src={user?.photoURL}
+              alt=""
+              title={user?.displayName}
+            />
+            {/* <p>{user?.displayName}</p> */}
+            <button
+              className="btn bg-white  text-slate-600 font-bold md:px-6 md:py-5 rounded-full"
+              onClick={logOut}
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="flex gap-3 md:gap-6">
+            <NavLink
+              to="/login"
+              className="btn bg-white text-slate-600 font-bold md:px-6 md:py-5 rounded-full"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/register"
+              className="btn bg-white text-slate-600 font-bold md:px-6 md:py-5 rounded-full"
+            >
+              Register
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );

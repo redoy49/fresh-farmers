@@ -6,25 +6,44 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import toast from "react-hot-toast";
+// eikhane setsucces setrror state er kono  use nai karon ami toast use korsi
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const handleRegister = (email, password) => {
+  console.log(user, loading);
+
+  const handleRegister = (name, email, password, photoUrl) => {
     console.log(email, password);
+    setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("User sign up successful.!", user);
+        toast.success("User sign up successful!", user);
+
+        const profile = {
+          displayName: name,
+          photoURL: photoUrl,
+        };
+
+        updateProfile(auth.currentUser, profile)
+          .then(() => {
+            toast.success("User profile update successfull!");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
+
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -33,12 +52,13 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleLogin = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const currentUser = result.user;
         setUser(currentUser);
         console.log(currentUser);
-        toast.success("User sign up successful.!", user);
+        toast.success("User sign in successful!", user);
       })
       .catch((error) => {
         console.error(error.code, error.message);
@@ -57,7 +77,8 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleLogout = () => {
-    signOut(auth)
+    setLoading(true);
+    return signOut(auth)
       .then(() => {
         toast.success("Log out successfull!");
       })
@@ -70,6 +91,7 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
       setUser(currentUser);
+      setLoading(false);
       if (currentUser) {
         // const uid = currentUser.uid;
       } else {
@@ -84,6 +106,7 @@ const AuthProvider = ({ children }) => {
   const authData = {
     user,
     loading,
+    setLoading,
     setUser,
     handleRegister,
     handleLogin,

@@ -19,21 +19,19 @@ const Slider = () => {
         navigation
         pagination={{ clickable: true }}
         loop={true}
-        onSlideChange={() => console.log("Slide changed")}
-        onSwiper={(swiper) => console.log("Swiper initialized:", swiper)}
       >
         <SwiperSlide>
-          <div className="flex justify-center items-center h-[480px] bg-slate-100">
+          <div className="flex justify-center items-center h-[450px] bg-slate-100">
             <img className="w-full" src={slider1} alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex justify-center items-center h-[480px] bg-slate-100">
+          <div className="flex justify-center items-center h-[450px] bg-slate-100">
             <img className="w-full" src={slider2} alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex justify-center items-center h-[480px] bg-slate-100">
+          <div className="flex justify-center items-center h-[450px] bg-slate-100">
             <img className="w-full" src={slider3} alt="" />
           </div>
         </SwiperSlide>

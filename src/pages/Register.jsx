@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const { handleRegister, googleLogin } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,11 +32,11 @@ const Register = () => {
       return;
     }
 
-    handleRegister(email, password);
+    handleRegister(name, email, password, photoUrl);
   };
 
   return (
-    <div className="flex items-center justify-center bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200 px-4 py-8">
+    <div className="flex items-center justify-center bg-slate-50 h-screen px-4 py-8">
       <div className="w-full max-w-md bg-white rounded-xl shadow-xl p-8">
         <h2 className="text-3xl font-bold text-center text-violet-700 mb-2">
           Create an account
@@ -62,7 +64,7 @@ const Register = () => {
               name="fullname"
               id="fullname"
               required
-              placeholder="John Doe"
+              placeholder="Redoy Hasan"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
             />
           </div>
@@ -91,14 +93,24 @@ const Register = () => {
             >
               Password
             </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              required
-              placeholder="******"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            />
+            <div className="flex items-center relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                required
+                placeholder="******"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="btn btn-xs absolute right-4"
+              >
+                {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />}
+              </button>
+            </div>
           </div>
 
           <div className="space-y-2">

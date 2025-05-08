@@ -1,20 +1,25 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
   const { handleLogin, googleLogin } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    handleLogin(email, password);
+    handleLogin(email, password).then(() => {
+      navigate(`${location.state ? location.state : "/"}`);
+    });
   };
 
   return (
-    <div className="flex items-center justify-center bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200 px-4 py-8">
+    <div className="flex items-center justify-center bg-slate-50 h-screen px-4 py-8">
       <div className="w-full max-w-md bg-white rounded-xl shadow-xl p-8">
         <h2 className="text-3xl font-bold text-center text-violet-700 mb-2">
           Login to your account
@@ -90,7 +95,7 @@ const Login = () => {
             type="submit"
             className="w-full py-3 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition duration-200"
           >
-            Sign In
+            Login
           </button>
         </form>
       </div>

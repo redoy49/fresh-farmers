@@ -6,6 +6,8 @@ import MyProfile from "../pages/MyProfile";
 import NotFound from "../pages/NotFound";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
+import Setting from "../components/Setting";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,15 @@ const router = createBrowserRouter([
       { path: "/forgot-password", element: <ForgotPassword /> },
       {
         path: "/profile",
-        element: <MyProfile />,
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/setting",
+        element: <Setting />,
       },
     ],
   },
