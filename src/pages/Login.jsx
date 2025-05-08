@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../provider/AuthProvider";
@@ -8,6 +8,10 @@ const Login = () => {
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
+
+  useEffect(() => {
+      document.title = "Login";
+    }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

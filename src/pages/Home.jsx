@@ -15,10 +15,15 @@ const Home = () => {
   return (
     <div>
       <Slider></Slider>
-      {/* <SubscriptionCard></SubscriptionCard> */}
-      <h1 className="text-3xl font-bold mb-6 text-center my-24">
-        Our Subscription Boxes
-      </h1>
+      <div className="my-24 mb-12">
+        <h1 className="text-2xl md:text-4xl font-bold text-center mb-6">
+          Our Subscription Boxes
+        </h1>
+        <p className="text-center">
+          Get fresh, seasonal vegetables delivered to your door every month.
+          Enjoy healthy eating made easy straight from the farm to your table.
+        </p>
+      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
           <SubscriptionCard key={service.id} service={service} />

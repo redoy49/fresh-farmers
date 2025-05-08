@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("User sign up successful!", user);
+        toast.success("User sign up successful!");
 
         const profile = {
           displayName: name,
@@ -37,6 +37,7 @@ const AuthProvider = ({ children }) => {
 
         updateProfile(auth.currentUser, profile)
           .then(() => {
+            setUser(...user, ...profile)
             toast.success("User profile update successfull!");
           })
           .catch((error) => {
@@ -99,7 +100,7 @@ const AuthProvider = ({ children }) => {
       }
     });
     return () => {
-      unSubscribe;
+      unSubscribe();
     };
   }, []);
 
