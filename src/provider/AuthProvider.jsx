@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
 
         updateProfile(auth.currentUser, profile)
           .then(() => {
-            setUser(...user, ...profile)
+            setUser(...user, ...profile);
             toast.success("User profile update successfull!");
           })
           .catch((error) => {
@@ -81,11 +81,29 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth)
       .then(() => {
-        toast.success("Log out successfull!");
+        toast.success("Log out succesfull!");
       })
       .catch(() => {
         toast.error("Log out error!");
       });
+  };
+
+  const manageProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    return updateProfile(auth.currentUser, profile).then(() => {
+      const userUpdate = {
+        ...auth.currentUser,
+        displayName: name,
+        photoURL: photoURL,
+      };
+      setUser(userUpdate);
+      toast.success("Save user info succesfull!");
+    }).catch(() => {
+      toast.error('Upate user info fail')
+    })
   };
 
   useEffect(() => {
@@ -113,6 +131,7 @@ const AuthProvider = ({ children }) => {
     handleLogin,
     googleLogin,
     handleLogout,
+    manageProfile,
   };
 
   return (

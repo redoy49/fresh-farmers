@@ -14,7 +14,7 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const photoUrl = e.target.photourl.value;
-
+ 
     console.log(name, email, password, photoUrl);
 
     if (password.length < 6) {
@@ -115,7 +115,6 @@ const Register = () => {
 
           <div className="space-y-2">
             <label
-              htmlFor="confirmpassword"
               className="block text-sm font-medium text-gray-700"
             >
               Photo URL

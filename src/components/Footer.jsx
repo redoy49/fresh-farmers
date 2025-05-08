@@ -53,14 +53,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-5">
-              <a target="_blank" href="#">
+              <a target="_blank" href="https://www.facebook.com">
                 <FaFacebook className="text-blue-500" size={28} />
               </a>
-              <a target="_blank" href="#">
+              <a target="_blank" href="https://www.youtube.com">
                 <FaYoutube className="text-red-500" size={30} />
               </a>
 
-              <a target="_blank" href="#">
+              <a target="_blank" href="https://www.instagram.com">
                 <FaInstagram className="text-pink-500" size={28} />
               </a>
             </div>

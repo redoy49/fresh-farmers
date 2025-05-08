@@ -16,13 +16,13 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink className='text-base' to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/profile">Profile</NavLink>
+        <NavLink className='text-base' to="/profile">Profile</NavLink>
       </li>
       <li>
-        <NavLink to="/setting">Setting</NavLink>
+        <NavLink className='text-base' to="/setting">Setting</NavLink>
       </li>
     </>
   );
@@ -70,7 +70,7 @@ const Navbar = () => {
             />
             {/* <p>{user?.displayName}</p> */}
             <button
-              className="btn bg-white  text-slate-600 font-bold md:px-6 md:py-5 rounded-full"
+              className="btn bg-white text-base text-slate-600 md:px-6 md:py-5 rounded-full"
               onClick={logOut}
             >
               Logout
@@ -80,13 +80,13 @@ const Navbar = () => {
           <div className="flex gap-3 md:gap-6">
             <NavLink
               to="/login"
-              className="btn bg-white text-slate-600 font-bold md:px-6 md:py-5 rounded-full"
+              className="btn text-base bg-white text-slate-600 md:px-6 md:py-5 rounded-full"
             >
               Login
             </NavLink>
             <NavLink
               to="/register"
-              className="btn bg-white text-slate-600 font-bold md:px-6 md:py-5 rounded-full"
+              className="btn text-base bg-white text-slate-600 md:px-6 md:py-5 rounded-full"
             >
               Register
             </NavLink>

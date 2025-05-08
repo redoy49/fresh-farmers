@@ -1,17 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { handleLogin, googleLogin } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
 
   useEffect(() => {
-      document.title = "Login";
-    }, []);
+    document.title = "Login";
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -85,14 +87,24 @@ const Login = () => {
                 Forgot password?
               </a>
             </div>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              required
-              placeholder="******"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            />
+            <div className="flex items-center relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                required
+                placeholder="******"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="btn btn-xs absolute right-4"
+              >
+                {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />}
+              </button>
+            </div>
           </div>
 
           <button
