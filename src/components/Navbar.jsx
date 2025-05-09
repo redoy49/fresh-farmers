@@ -6,7 +6,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   // const { pathname } = useLocation();
   const { user, handleLogout } = useContext(AuthContext);
-  console.log(user);
   const logOut = () => {
     handleLogout().then(() => {
       navigate("/login");
@@ -22,7 +21,7 @@ const Navbar = () => {
         <NavLink className='text-base' to="/profile">Profile</NavLink>
       </li>
       <li>
-        <NavLink className='text-base' to="/setting">Setting</NavLink>
+        <NavLink className='text-base' to="/blog">Blogs</NavLink>
       </li>
     </>
   );

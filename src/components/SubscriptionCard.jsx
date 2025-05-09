@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 
 const SubscriptionCard = ({ service }) => {
-  const { name, frequency, price, shortDescription, category, thumbnail } =
+  const {id, name, frequency, price, shortDescription, category, thumbnail } =
     service;
   const rating = (
     <>
@@ -51,12 +52,12 @@ const SubscriptionCard = ({ service }) => {
             </span>
           </div>
         </div>
-        <a
-          href="#"
+        <Link
+          to={`/box-details/${id}`}
           className="flex items-center justify-center rounded-md bg-violet-600 px-5 py-4 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300"
         >
           View Details
-        </a>
+        </Link>
       </div>
     </div>
   );
