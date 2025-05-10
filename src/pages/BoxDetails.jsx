@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CiCircleCheck } from "react-icons/ci";
 import { useLoaderData, useParams } from "react-router";
+import ReviewRating from "../components/ReviewRating";
 
 const BoxDetails = () => {
   const data = useLoaderData();
@@ -16,7 +17,7 @@ const BoxDetails = () => {
 
   return (
     <div className="my-24">
-      <div className="md:flex justify-center items-center p-2 gap-6">
+      <div className="md:flex justify-center items-center p-2 gap-6 mb-14">
         <div className="md:w-1/2">
           <img
             className="w-full object-cover md:h-[480px] mb-4"
@@ -59,6 +60,7 @@ const BoxDetails = () => {
           </div>
         </div>
       </div>
+      <ReviewRating></ReviewRating>
     </div>
   );
 };

@@ -18,8 +18,12 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       {
         path: "/box-details/:id",
-        element: <BoxDetails />,
         loader: () => fetch("/subscription.json"),
+        element: (
+          <PrivateRoute>
+            <BoxDetails />
+          </PrivateRoute>
+        ),
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
