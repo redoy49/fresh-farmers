@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Blog = () => {
+  useEffect(() => {
+    document.title = "Blogs";
+  }, []);
+
   return (
     <div>
       <section className="py-6 sm:py-12 dark:bg-gray-100 dark:text-gray-800">

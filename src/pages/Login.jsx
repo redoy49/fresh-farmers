@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../provider/AuthProvider";
@@ -6,9 +6,10 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { handleLogin, googleLogin } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const emailRef = useRef();
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +23,10 @@ const Login = () => {
     handleLogin(email, password).then(() => {
       navigate(`${location.state ? location.state : "/"}`);
     });
+  };
+
+  const handleForget = () => {
+    navigate("/forget-pass", { state: { email } });
   };
 
   return (
@@ -67,11 +72,14 @@ const Login = () => {
             </label>
             <input
               type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
               name="email"
               id="email"
+              ref={emailRef}
               required
-              placeholder="redoy@gmail.com"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+              placeholder="Your email"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
             />
           </div>
 
@@ -83,9 +91,13 @@ const Login = () => {
               >
                 Password
               </label>
-              <a href="#" className="text-xs text-violet-600 hover:underline">
+              <button
+                onClick={handleForget}
+                type="button"
+                className="text-xs text-violet-600 hover:underline"
+              >
                 Forgot password?
-              </a>
+              </button>
             </div>
             <div className="flex items-center relative">
               <input
@@ -94,7 +106,7 @@ const Login = () => {
                 id="password"
                 required
                 placeholder="******"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
               />
 
               <button
@@ -109,7 +121,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full py-3 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition duration-200"
+            className="w-full py-3 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-500"
           >
             Login
           </button>

@@ -15,7 +15,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainLayout />,
     children: [
-      { path: "/", element: <Home /> },
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/box-details/:id",
         loader: () => fetch("/subscription.json"),
@@ -25,9 +28,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "/login", element: <Login /> },
-      { path: "/register", element: <Register /> },
-      { path: "/forgot-password", element: <ForgotPassword /> },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/forget-pass",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
       {
         path: "/profile",
         element: (

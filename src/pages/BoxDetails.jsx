@@ -13,6 +13,7 @@ const BoxDetails = () => {
   useEffect(() => {
     const boxDetails = data.find((singleBox) => singleBox.id == id);
     setBox(boxDetails);
+    document.title = "Box Details";
   }, [data, id]);
 
   return (

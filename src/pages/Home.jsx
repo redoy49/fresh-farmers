@@ -11,6 +11,8 @@ const Home = () => {
     fetch("/subscription.json")
       .then((res) => res.json())
       .then((data) => setServices(data));
+
+    document.title = "Home";
   }, []);
 
   return (

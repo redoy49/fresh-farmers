@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -64,6 +65,11 @@ const AuthProvider = ({ children }) => {
       });
   };
 
+  const passwordForget = (forgetEmail) => {
+    console.log("email", forgetEmail);
+    return sendPasswordResetEmail(auth, forgetEmail);
+  };
+
   const googleLogin = () => {
     setLoading(true);
     signInWithPopup(auth, googleProvider)
@@ -91,17 +97,19 @@ const AuthProvider = ({ children }) => {
       displayName: name,
       photoURL: photoURL,
     };
-    return updateProfile(auth.currentUser, profile).then(() => {
-      const userUpdate = {
-        ...auth.currentUser,
-        displayName: name,
-        photoURL: photoURL,
-      };
-      setUser(userUpdate);
-      toast.success("Save user info succesfull!");
-    }).catch(() => {
-      toast.error('Upate user info fail')
-    })
+    return updateProfile(auth.currentUser, profile)
+      .then(() => {
+        const userUpdate = {
+          ...auth.currentUser,
+          displayName: name,
+          photoURL: photoURL,
+        };
+        setUser(userUpdate);
+        toast.success("Save user info succesfull!");
+      })
+      .catch(() => {
+        toast.error("Upate user info fail");
+      });
   };
 
   useEffect(() => {
@@ -130,6 +138,7 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     handleLogout,
     manageProfile,
+    passwordForget,
   };
 
   return (

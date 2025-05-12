@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { RiStarSFill } from "react-icons/ri";
+import { AuthContext } from "../provider/AuthProvider";
 
 const ReviewRating = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [message, setMessage] = useState("");
@@ -9,7 +12,6 @@ const ReviewRating = () => {
 
   const handleReview = () => {
     if (rating < 1) return;
-
     const newReview = { rating, message };
     setReviewList([...reviewList, newReview]);
     setMessage("");
@@ -66,7 +68,7 @@ const ReviewRating = () => {
             key={i}
             className="bg-slate-100 rounded-lg p-8 text-center w-full md:w-1/3"
           >
-            <p className="font-bold uppercase">Anonymous User</p>
+            <p className="font-bold uppercase">{user.displayName}</p>
             <p className="text-xl text-gray-700 mt-2">{singleReview.message}</p>
             <div className="flex items-center justify-center space-x-1 mt-4">
               {[...Array(5)].map((_, i) => (

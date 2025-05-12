@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const MyProfile = () => {
   const { user, manageProfile } = useContext(AuthContext);
+  useEffect(() => {
+    document.title = "Profile";
+  }, []);
   const handleSave = (e) => {
     e.preventDefault();
     const name = e.target.fullname.value;

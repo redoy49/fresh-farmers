@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
@@ -7,6 +7,10 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
   const { handleRegister, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+      document.title = "Register";
+    }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
