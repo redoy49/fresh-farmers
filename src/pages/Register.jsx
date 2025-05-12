@@ -17,6 +17,7 @@ const Register = () => {
 
   const handleGoogleLogin = () => {
     googleLogin().then(() => {
+      toast.success("Login with Google successful!");
       navigate(`${location.state ? location.state : "/"}`);
     });
   };
@@ -50,7 +51,6 @@ const Register = () => {
         toast.success("User Register successful!");
 
         manageProfile(name, photoUrl).then(() => {
-          toast.success("ffff");
           navigate(`${location.state ? location.state : "/"}`);
         });
       })
