@@ -4,7 +4,7 @@ FreshFarmer is subscription Box Service Platform that enables users to easily br
 
 ## Live Link
 
-[Live URL](https://your-live-project-url.com)
+[Live URL](https://subscription-box-df504.web.app)
 
 ## Purpose
 
