@@ -7,8 +7,6 @@ const BoxDetails = () => {
   const data = useLoaderData();
   const { id } = useParams();
   const [box, setBox] = useState({});
-  console.log(id);
-  console.log(box);
 
   useEffect(() => {
     const boxDetails = data.find((singleBox) => singleBox.id == id);

@@ -14,7 +14,7 @@ const ForgotPassword = () => {
 
   const handleReset = () => {
     if (!email) {
-      alert("Please enter a valid email");
+      toast.error("Please enter a valid email");
       return;
     }
 

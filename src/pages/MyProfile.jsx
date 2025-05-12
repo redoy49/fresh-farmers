@@ -22,7 +22,6 @@ const MyProfile = () => {
         <p className="text-lg font-bold"> {user.displayName}</p>
         <p className="text-lg text-gray-600">{user.email}</p>
       </div>
-
       <form onSubmit={handleSave} className="space-y-5">
         <div className="space-y-3">
           <label htmlFor="fullname" className="block font-medium text-gray-700">
@@ -47,7 +46,6 @@ const MyProfile = () => {
             className="w-full px-4 py-4 border border-gray-300 rounded-lg bg-gray-50"
           />
         </div>
-
         <button
           type="submit"
           className="w-full py-4 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700"

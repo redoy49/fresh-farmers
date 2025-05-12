@@ -25,7 +25,6 @@ const AuthProvider = ({ children }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         toast.success("User Register successful!");
 
         const profile = {
@@ -39,7 +38,7 @@ const AuthProvider = ({ children }) => {
             toast.success("User profile update successfull!");
           })
           .catch((error) => {
-            console.log(error);
+            toast.error("User profile update error!", error);
           });
       })
 
@@ -56,16 +55,14 @@ const AuthProvider = ({ children }) => {
       .then((result) => {
         const currentUser = result.user;
         setUser(currentUser);
-        console.log(currentUser);
         toast.success("User Log in successful!", user);
       })
       .catch((error) => {
-        console.error(error.code, error.message);
+        toast.error("User Log in error!", error);
       });
   };
 
   const passwordForget = (forgetEmail) => {
-    console.log("email", forgetEmail);
     return sendPasswordResetEmail(auth, forgetEmail);
   };
 
@@ -73,6 +70,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        toast.success("Google Login successfull!");
         console.log(result);
       })
       .catch((error) => {

@@ -61,7 +61,6 @@ const ReviewRating = () => {
           </button>
         </div>
       </div>
-
       <div className="flex flex-wrap justify-center gap-6 mt-8">
         {reviewList.map((singleReview, i) => (
           <div
