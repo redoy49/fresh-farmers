@@ -4,7 +4,6 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const ReviewRating = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [message, setMessage] = useState("");

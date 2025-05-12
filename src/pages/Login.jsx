@@ -33,9 +33,6 @@ const Login = () => {
         navigate(`${location.state ? location.state : "/"}`);
         console.log(result);
       })
-      .catch((error) => {
-        console.error(error.code, error.message);
-      });
   };
 
   const handleForget = () => {
