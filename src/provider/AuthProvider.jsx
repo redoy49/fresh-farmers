@@ -11,7 +11,6 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import toast from "react-hot-toast";
-// eikhane setsucces setrror state er kono  use nai karon ami toast use korsi
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -27,7 +26,7 @@ const AuthProvider = ({ children }) => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("User sign up successful!");
+        toast.success("User Register successful!");
 
         const profile = {
           displayName: name,
@@ -58,7 +57,7 @@ const AuthProvider = ({ children }) => {
         const currentUser = result.user;
         setUser(currentUser);
         console.log(currentUser);
-        toast.success("User sign in successful!", user);
+        toast.success("User Log in successful!", user);
       })
       .catch((error) => {
         console.error(error.code, error.message);
@@ -85,10 +84,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth)
       .then(() => {
-        toast.success("Log out succesfull!");
+        toast.success("User Log out succesfull!");
       })
       .catch(() => {
-        toast.error("Log out error!");
+        toast.error("User Log out error!");
       });
   };
 
@@ -117,11 +116,6 @@ const AuthProvider = ({ children }) => {
       console.log(currentUser);
       setUser(currentUser);
       setLoading(false);
-      if (currentUser) {
-        // const uid = currentUser.uid;
-      } else {
-        // User is signed out
-      }
     });
     return () => {
       unSubscribe();

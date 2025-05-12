@@ -13,7 +13,7 @@ const NotFound = () => {
             Sorry, we couldn't find this page.
           </p>
           <p className="mt-4 mb-8 dark:text-gray-600">
-            But dont worry, you can find CannieBox of other things on our
+            But dont worry, you can find FreshFarmers of other things on our
             homepage.
           </p>
           <Link

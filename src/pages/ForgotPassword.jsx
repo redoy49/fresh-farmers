@@ -1,4 +1,3 @@
-// pages/ForgotPassword.jsx
 import { useLocation } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -6,7 +5,6 @@ import toast from "react-hot-toast";
 
 const ForgotPassword = () => {
   const location = useLocation();
-  // const navigate = useNavigate();
   const { passwordForget } = useContext(AuthContext);
   const [email, setEmail] = useState("");
 

@@ -51,8 +51,8 @@ const BoxDetails = () => {
           <div className="flex gap-4">
             <p className="text-lg font-bold">Items Include: </p>
             <div className="text-slate-600 space-y-1 mb-6">
-              {box.includeItems?.map((items, index) => (
-                <p key={index} className="flex items-center mt-1 gap-1">
+              {box.includeItems?.map((items, i) => (
+                <p key={i} className="flex items-center mt-1 gap-1">
                   <CiCircleCheck className="text-black" size={18} />
                   {items}
                 </p>

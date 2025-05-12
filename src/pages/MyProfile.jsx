@@ -34,7 +34,7 @@ const MyProfile = () => {
             id="fullname"
             required
             placeholder="Your name"
-            className="w-full px-4 py-4 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            className="w-full px-4 py-4 border border-gray-300 rounded-lg bg-gray-50"
           />
         </div>
         <div className="space-y-2">
@@ -43,15 +43,14 @@ const MyProfile = () => {
             type="text"
             name="photourl"
             id="photourl"
-            required
             placeholder="Photo URL"
-            className="w-full px-4 py-4 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            className="w-full px-4 py-4 border border-gray-300 rounded-lg bg-gray-50"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full py-4 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition duration-200"
+          className="w-full py-4 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700"
         >
           Save
         </button>

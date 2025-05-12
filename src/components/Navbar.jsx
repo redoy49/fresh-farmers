@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  // const { pathname } = useLocation();
   const { user, handleLogout } = useContext(AuthContext);
   const logOut = () => {
     handleLogout().then(() => {
@@ -15,16 +14,23 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink className='text-base' to="/">Home</NavLink>
+        <NavLink className="text-base" to="/">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink className='text-base' to="/profile">Profile</NavLink>
+        <NavLink className="text-base" to="/profile">
+          Profile
+        </NavLink>
       </li>
       <li>
-        <NavLink className='text-base' to="/blog">Blogs</NavLink>
+        <NavLink className="text-base" to="/blog">
+          Blogs
+        </NavLink>
       </li>
     </>
   );
+
   return (
     <div className="navbar bg-base-100 md:py-6">
       <div className="navbar-start">
@@ -53,7 +59,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn p-0 btn-ghost text-xl">FreshFarmers</a>
+        <a className="btn p-0 btn-ghost text-base md:text-xl">FreshFarmers</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -67,7 +73,6 @@ const Navbar = () => {
               alt=""
               title={user?.displayName}
             />
-            {/* <p>{user?.displayName}</p> */}
             <button
               className="btn bg-white text-base text-slate-600 md:px-6 md:py-5 rounded-full"
               onClick={logOut}

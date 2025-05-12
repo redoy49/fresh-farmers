@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { handleRegister, googleLogin } = useContext(AuthContext);
@@ -22,17 +23,17 @@ const Register = () => {
     console.log(name, email, password, photoUrl);
 
     if (password.length < 6) {
-      alert("Password must be at least 6 digit.");
+      toast.error("Password must be at least 6 digit.");
       return;
     }
 
     if (!/[A-Z]/.test(password)) {
-      alert("Password must contain at least one uppercase letter.");
+      toast.error("Password must contain at least one uppercase letter.");
       return;
     }
 
     if (!/[a-z]/.test(password)) {
-      alert("Password must contain at least one lowercase letter.");
+      toast.error("Password must contain at least one lowercase letter.");
       return;
     }
 
@@ -69,7 +70,7 @@ const Register = () => {
               id="fullname"
               required
               placeholder="Redoy Hasan"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
             />
           </div>
 
@@ -85,8 +86,8 @@ const Register = () => {
               name="email"
               id="email"
               required
-              placeholder="redoy@gmail.com"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+              placeholder="Your email"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
             />
           </div>
 
@@ -104,7 +105,7 @@ const Register = () => {
                 id="password"
                 required
                 placeholder="******"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
               />
 
               <button
@@ -129,13 +130,13 @@ const Register = () => {
               id="photourl"
               required
               placeholder="Photo URL"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition duration-200"
+            className="w-full py-3 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700"
           >
             Register
           </button>
@@ -148,7 +149,7 @@ const Register = () => {
         <button
           onClick={googleLogin}
           type="button"
-          className="flex items-center justify-center w-full gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition"
+          className="flex items-center justify-center w-full gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
         >
           <FcGoogle size={23} />
           <span>Login with Google</span>
