@@ -1,17 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { handleRegister, googleLogin } = useContext(AuthContext);
+  const { handleRegister, googleLogin, manageProfile } =
+    useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-      document.title = "Register";
-    }, []);
+    document.title = "Register";
+  }, []);
+
+  const handleGoogleLogin = () => {
+    googleLogin().then(() => {
+      navigate(`${location.state ? location.state : "/"}`);
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +27,7 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const photoUrl = e.target.photourl.value;
-    
+
     if (password.length < 6) {
       toast.error("Password must be at least 6 digit.");
       return;
@@ -35,7 +43,23 @@ const Register = () => {
       return;
     }
 
-    handleRegister(name, email, password, photoUrl);
+    handleRegister(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("User Register successful!");
+
+        manageProfile(name, photoUrl).then(() => {
+          toast.success("ffff");
+          navigate(`${location.state ? location.state : "/"}`);
+        });
+      })
+
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
   };
 
   return (
@@ -117,9 +141,7 @@ const Register = () => {
           </div>
 
           <div className="space-y-2">
-            <label
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-gray-700">
               Photo URL
             </label>
             <input
@@ -145,7 +167,7 @@ const Register = () => {
           <hr className="w-full border-gray-300" />
         </div>
         <button
-          onClick={googleLogin}
+          onClick={handleGoogleLogin}
           type="button"
           className="flex items-center justify-center w-full gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
         >

@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { handleLogin, googleLogin } = useContext(AuthContext);
@@ -23,6 +24,18 @@ const Login = () => {
     handleLogin(email, password).then(() => {
       navigate(`${location.state ? location.state : "/"}`);
     });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        toast.success("Google Login successfull!");
+        navigate(`${location.state ? location.state : "/"}`);
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error(error.code, error.message);
+      });
   };
 
   const handleForget = () => {
@@ -47,7 +60,7 @@ const Login = () => {
 
         <div className="space-y-4 mb-6">
           <button
-            onClick={googleLogin}
+            onClick={handleGoogleLogin}
             type="button"
             className="flex items-center justify-center w-full gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition"
           >

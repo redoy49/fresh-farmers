@@ -19,34 +19,10 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const handleRegister = (name, email, password, photoUrl) => {
+  const handleRegister = (email, password) => {
     console.log(email, password);
     setLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        toast.success("User Register successful!");
-
-        const profile = {
-          displayName: name,
-          photoURL: photoUrl,
-        };
-
-        updateProfile(auth.currentUser, profile)
-          .then(() => {
-            setUser(...user, ...profile);
-            toast.success("User profile update successfull!");
-          })
-          .catch((error) => {
-            toast.error("User profile update error!", error);
-          });
-      })
-
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const handleLogin = (email, password) => {
@@ -68,14 +44,7 @@ const AuthProvider = ({ children }) => {
 
   const googleLogin = () => {
     setLoading(true);
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        toast.success("Google Login successfull!");
-        console.log(result);
-      })
-      .catch((error) => {
-        console.error(error.code, error.message);
-      });
+    return signInWithPopup(auth, googleProvider);
   };
 
   const handleLogout = () => {
