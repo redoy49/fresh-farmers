@@ -88,16 +88,17 @@ The goal of FreshFarmers is to simplify grocery shopping for busy individuals th
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/freshfarmers-client.git
+git clone https://github.com/redoy49/freshfarmers-client.git
 cd freshfarmers-client
 ```
-## Step 2: Install Dependencies
+
+### Step 2: Install Dependencies
 
 ```bash
 npm install
 ```
 
-## Step 3: Create a .env File
+### Step 3: Create a .env File
 
 ```env
 VITE_FIREBASE_API_KEY=your_api_key
@@ -108,7 +109,7 @@ VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
 ```
 
-## Step 4: Run the App
+### Step 4: Run the App
 
 ```bash
 npm run dev
@@ -119,7 +120,7 @@ npm run dev
 ## 🔗 Relevant Links
 
 🔴 **Live Website**: https://subscription-box-df504.web.app  
-🟠 **GitHub Repo**: https://github.com/your-username/freshfarmers-client
+🟠 **GitHub Repo**: https://github.com/redoy49/freshfarmers-client
 
 ---
 
@@ -139,5 +140,5 @@ npm run dev
 ## 👤 Author
 
 🔗 **Portfolio**: [your-portfolio-link]  
-📧 **Email**: your@email.com  
-🐦 **Twitter**: [@your-handle]
+📧 **Email**: mdredoyhasan49@gmail.com  
+🐦 **Twitter**: [@mdredoyhasan49](https://twitter.com/mdredoyhasan49)
