@@ -10,12 +10,6 @@ FreshFarmers is a full-featured subscription box platform that allows users to b
 
 ---
 
-## 🖼️ Screenshot
-
-![FreshFarmers Screenshot](https://i.ibb.co/sample-image.png) <!-- Replace with your actual screenshot URL -->
-
----
-
 ## 🎯 Project Purpose
 
 The goal of FreshFarmers is to simplify grocery shopping for busy individuals through:
@@ -139,6 +133,5 @@ npm run dev
 
 ## 👤 Author
 
-🔗 **Portfolio**: [your-portfolio-link]  
 📧 **Email**: mdredoyhasan49@gmail.com  
 🐦 **Twitter**: [@mdredoyhasan49](https://twitter.com/mdredoyhasan49)
