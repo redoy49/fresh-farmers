@@ -91,3 +91,53 @@ The goal of FreshFarmers is to simplify grocery shopping for busy individuals th
 git clone https://github.com/your-username/freshfarmers-client.git
 cd freshfarmers-client
 ```
+## Step 2: Install Dependencies
+
+```bash
+npm install
+```
+
+## Step 3: Create a .env File
+
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+## Step 4: Run the App
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔗 Relevant Links
+
+🔴 **Live Website**: https://subscription-box-df504.web.app  
+🟠 **GitHub Repo**: https://github.com/your-username/freshfarmers-client
+
+---
+
+## 📌 Notes
+
+✅ Firebase & API credentials are stored securely in `.env`  
+✅ SweetAlert2 and React Toastify are used for all user notifications  
+✅ Password validation includes uppercase, lowercase, and minimum length rules  
+✅ Authentication state persists on page reloads for private routes  
+✅ Review and rating system implemented on subscription details page  
+✅ Profile page allows users to securely update their display name and photoURL  
+✅ Includes custom 404 page and loading spinners  
+✅ Dynamic page titles improve UX and SEO
+
+---
+
+## 👤 Author
+
+🔗 **Portfolio**: [your-portfolio-link]  
+📧 **Email**: your@email.com  
+🐦 **Twitter**: [@your-handle]
